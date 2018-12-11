@@ -1,0 +1,12 @@
+{% extends('master.html') %}
+
+{% block content %}
+    <h2>Our Products Page</h2>
+    {% for item in items_products  %}
+        <p>{{ item }}</p>
+    {% endfor %}
+
+
+
+
+{% endblock %}
