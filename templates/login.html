@@ -1,0 +1,20 @@
+{% extends('master.html') %}
+
+{% block content %}
+    <h2>Login</h2>
+    <div class="row justify-content-center">
+            <div class="col-5">
+                <form action="/login" method="post">
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Password">
+                    </div>
+                    <button class="btn btn-primary btn-block">SignIn</button>
+                </form>
+
+            </div>
+    </div>
+
+{% endblock content %}

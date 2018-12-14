@@ -1,12 +1,48 @@
 {% extends('master.html') %}
+{% block extras %}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+{% endblock %}
 
 {% block content %}
     <h2>Our Products Page</h2>
-    {% for item in items_products  %}
-        <p>{{ item }}</p>
-    {% endfor %}
+    {#    {% for item in items_products  %}#}
+    {#        <p>{{ item }}</p>#}
+    {#    {% endfor %}#}
 
+    <div class="container">
+        <table id="products" class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>QUANTITY</th>
+                <th>PRICE</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product[0] }}</td>
+                    <td>{{ product[1] }}</td>
+                    <td>{{ product[2] }}</td>
+                    <td>{{ product[3] }}</td>
+                    <td></td>
+                    <td><a href="/delete/{{ product[0] }}" class="btn btn-danger">Delete</a></td>
+                </tr>
 
+            {% endfor %}
 
+            </tbody>
+        </table>
+    </div>
 
-{% endblock %}
+    <script>
+        $(document).ready(function () {
+            $('#products').DataTable();
+        });
+
+    </script>
+{% endblock content %}
